@@ -1,4 +1,6 @@
-## Functions
+#####################
+# Functions
+#####################
 # Understanding built-in functions
 
 print
