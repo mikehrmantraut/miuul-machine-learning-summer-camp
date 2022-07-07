@@ -36,6 +36,11 @@ text = text.replace(",", " ")
 text = text.replace(".", " ")
 text = text.split()
 
+# or 
+text = "The goal is to turn data into information, and information into insight."
+text.upper().replace(","," ").replace(".", " ").split()
+
+
 ## Task 3 
 lst = ["D", "A", "T", "A", "S", "C", "I", "E", "N", "C", "E"]
 
