@@ -1,5 +1,5 @@
 #############################################
-# List & Dict Comprehension Exercices - 2
+# List & Dict Comprehension Exercises - 2
 #############################################
 
 # We want to add 'FLAG' to the beginning of the variables with 'INS' in the name and 'NO_FLAG' to the others
