@@ -1,5 +1,5 @@
 #############################################
-# List & Dict Comprehension Exercices - 1
+# List & Dict Comprehension Exercises - 1
 #############################################
 
 # Changing variable names in a dataset
