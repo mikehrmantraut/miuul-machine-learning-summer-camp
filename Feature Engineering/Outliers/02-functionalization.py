@@ -23,7 +23,7 @@ def load():
 df = load()
 df.head()
 
-def outliers_thresholds(dataframe, col_name, q1=0.25, q3=0.75):
+def outlier_thresholds(dataframe, col_name, q1=0.25, q3=0.75):
     quartile1 = dataframe[col_name].quantile(q1)
     quartile3 = dataframe[col_name].quantile(q3)
     interquartile_range = quartile3 - quartile1
@@ -31,15 +31,15 @@ def outliers_thresholds(dataframe, col_name, q1=0.25, q3=0.75):
     low_limit = quartile1 - 1.5 * interquartile_range
     return low_limit, up_limit
 
-outliers_thresholds(df, 'Age')
-outliers_thresholds(df, 'Fare')
+outlier_thresholds(df, 'Age')
+outlier_thresholds(df, 'Fare')
 
-low, up = outliers_thresholds(df, 'Fare')
+low, up = outlier_thresholds(df, 'Fare')
 
 df[(df["Fare"] < low) | (df["Fare"] > up)].head()
 
 def check_outlier(dataframe, col_name):
-    low_limit, up_limit = outliers_thresholds(dataframe, col_name)
+    low_limit, up_limit = outlier_thresholds(dataframe, col_name)
     if dataframe[(dataframe[col_name] > up_limit) | (dataframe[col_name] < low_limit)].any(axis=None):
         return True
     else:
