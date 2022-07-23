@@ -62,6 +62,14 @@ df["Embarked"].fillna("Missing")
 
 df.apply(lambda x: x.fillna(x.mode()[0]) if (x.dtype == 'O' and len(x.unique()) <= 10) else x, axis=0)
 
+df.groupby("Sex")["Age"].mean()
 
+df["Age"].fillna(df.groupby("Sex")["Age"].transform("mean")).isnull().sum()
 
+df.groupby("Sex")["Age"].mean()["female"]
 
+df.loc[(df["Age"].isnull()) & (df["Sex"]=="female"), "Age"] = df.groupby("Sex")["Age"].mean()["female"]
+
+df.loc[(df["Age"].isnull()) & (df["Sex"]=="male"), "Age"] = df.groupby("Sex")["Age"].mean()["male"]
+
+df.isnull().sum()
