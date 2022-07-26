@@ -1,5 +1,5 @@
 ##############################
-# Feature Extraction
+# Feature Extraction / Binary Features
 ##############################
 import pandas as pd
 from matplotlib import pyplot as plt
