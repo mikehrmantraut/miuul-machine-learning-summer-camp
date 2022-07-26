@@ -24,8 +24,9 @@ from statsmodels.stats.proportion import proportions_ztest
 
 test_stat, pvalue = proportions_ztest(count=[df.loc[df["NEW_CABIN_BOOL"] == 1, "Survived"].sum(),
                                              df.loc[df["NEW_CABIN_BOOL"] == 0, "Survived"].sum()],
+
                                       nobs=[df.loc[df["NEW_CABIN_BOOL"] == 1, "Survived"].shape[0],
-                                             df.loc[df["NEW_CABIN_BOOL"] == 0, "Survived"].shape[0]])
+                                            df.loc[df["NEW_CABIN_BOOL"] == 0, "Survived"].shape[0]])
 
 print("Test Stat = %.4f, p-value = %.4f" % (test_stat, pvalue))
 
@@ -35,7 +36,10 @@ df.loc[((df['SibSp'] + df['Parch']) == 0), "NEW_IS_ALONE"] = "YES"
 
 df.groupby("NEW_IS_ALONE").agg({"Survived": "mean"})
 
-test_stat, pvalue = proportions_ztest(count=[df.loc[df["NEW_IS_ALONE"] == 1, "Survived"].sum(),
-                                             df.loc[df["NEW_IS_ALONE"] == 0, "Survived"].sum()],
-                                      nobs=[df.loc[df["NEW_IS_ALONE"] == 1, "Survived"].shape[0],
-                                             df.loc[df["NEW_IS_ALONE"] == 0, "Survived"].shape[0]])
+test_stat, pvalue = proportions_ztest(count=[df.loc[df["NEW_IS_ALONE"] == "YES", "Survived"].sum(),
+                                             df.loc[df["NEW_IS_ALONE"] == "NO", "Survived"].sum()],
+
+                                      nobs=[df.loc[df["NEW_IS_ALONE"] == "YES", "Survived"].shape[0],
+                                            df.loc[df["NEW_IS_ALONE"] == "NO", "Survived"].shape[0]])
+
+print("Test Stat = %.4f, p-value = %.4f" % (test_stat, pvalue))
