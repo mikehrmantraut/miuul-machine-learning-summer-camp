@@ -1,5 +1,5 @@
 # Data Analysis with Python
-In this section we have 3 topics.
+In this section we have 4 topics.
 <li> NumPy </li><br/>
 <li> Pandas </li><br/>
 <li> Data Visualization </li><br/>
